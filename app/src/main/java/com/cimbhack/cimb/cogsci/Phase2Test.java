@@ -127,7 +127,7 @@ public class Phase2Test extends AppCompatActivity {
             submit.setEnabled(true);
         }else
         {
-            submit.setEnabled(true);
+            submit.setEnabled(false);
         }
     }
     private void printArrayList(){

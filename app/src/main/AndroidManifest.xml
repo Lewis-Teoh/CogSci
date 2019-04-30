@@ -19,6 +19,7 @@
         <activity android:name=".Phase1Test" ></activity>
         <activity android:name=".Phase2Test"></activity>
         <activity android:name=".Phase3Test"></activity>
+        <activity android:name=".ResultActivity"></activity>
     </application>
 
 </manifest>
