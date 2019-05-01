@@ -29,6 +29,7 @@ public class Phase2Test extends AppCompatActivity {
     TextView display;
     EditText input;
     Button submit , finish;
+    String keys;
     int i = 0;
     int correct = 0;
 
@@ -44,6 +45,11 @@ public class Phase2Test extends AppCompatActivity {
         finish.setVisibility(View.INVISIBLE);
         display.setText(questions[0]);
         submit.setEnabled(false);
+
+        Bundle bundle=getIntent().getExtras();
+        if(null!=bundle){
+            keys = bundle.getString("key");
+        }
         input.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -105,6 +111,7 @@ public class Phase2Test extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(Phase2Test.this, Phase3Test.class);
                             intent.putExtra("array_list", arrayList);
+                            intent.putExtra("key",keys);
                             startActivity(intent);
                         }
                     });
@@ -127,7 +134,7 @@ public class Phase2Test extends AppCompatActivity {
             submit.setEnabled(true);
         }else
         {
-            submit.setEnabled(false);
+            submit.setEnabled(true);
         }
     }
     private void printArrayList(){

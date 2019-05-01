@@ -1,5 +1,6 @@
 package com.cimbhack.cimb.cogsci;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -38,7 +39,8 @@ public class Phase1Test extends AppCompatActivity {
                             ready.setVisibility(View.VISIBLE);
                             ready.setOnClickListener(new View.OnClickListener() {
                                 public void onClick(View v) {
-
+                                    Intent intent = new Intent(Phase1Test.this,Phase2Test.class);
+                                    startActivity(intent);
                                 }
                             });
                         }

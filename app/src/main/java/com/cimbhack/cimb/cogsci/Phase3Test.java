@@ -20,6 +20,7 @@ public class Phase3Test extends AppCompatActivity {
     int i = 0;
     int correct=0;
     double score = 0;
+    String keys;
     ArrayList<String> check ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,9 @@ public class Phase3Test extends AppCompatActivity {
         if(null!=bundle){
             ArrayList<String> arrayList = bundle.getStringArrayList("array_list");
             check = (ArrayList<String>) arrayList.clone();
+            keys = bundle.getString("key");
             Log.i("List" , "Passed Array List ::"+check);
+            Log.i("Keys" , "Matric No ::"+keys);
         }
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +67,7 @@ public class Phase3Test extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(Phase3Test.this,ResultActivity.class);
                             intent.putExtra("Score",evaluateScore(correct));
+                            intent.putExtra("key",keys);
                             startActivity(intent);
                         }
                     });
@@ -96,6 +100,7 @@ public class Phase3Test extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(Phase3Test.this,ResultActivity.class);
                             intent.putExtra("Score",evaluateScore(correct));
+                            intent.putExtra("key",keys);
                             startActivity(intent);
                         }
                     });
