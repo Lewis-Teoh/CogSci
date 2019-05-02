@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -18,18 +19,20 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class GlobalResult extends AppCompatActivity {
     DatabaseReference databaseReference;
     ListView listView;
-    Button home = (Button) findViewById(R.id.home);
+    Button home;
+    TextView txtView;
     ArrayList<String> arrayList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.global_result);
-
+        txtView = (TextView)findViewById(R.id.textView3);
+        home = (Button) findViewById(R.id.home_btn);
         listView = (ListView)findViewById(R.id.listView);
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line,arrayList);

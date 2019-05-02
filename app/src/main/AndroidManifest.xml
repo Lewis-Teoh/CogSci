@@ -21,6 +21,7 @@
         <activity android:name=".Phase3Test"></activity>
         <activity android:name=".ResultActivity"></activity>
         <activity android:name=".GlobalResult"></activity>
+        <activity android:name=".DescriptionActivity"></activity>
     </application>
 
 </manifest>

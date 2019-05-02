@@ -1,6 +1,7 @@
 package com.cimbhack.cimb.cogsci;
 
 import android.content.Intent;
+import android.support.design.widget.TabItem;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,9 +15,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnBeginTest;
+    Button btnBeginTest , btnDesc;
     EditText matricNo;
-
+    TabItem tab;
+    String matricNum;
 
 
     @Override
@@ -25,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnBeginTest = (Button) findViewById(R.id.beginTest);
         matricNo = (EditText) findViewById(R.id.matricNo);
-        btnBeginTest.setEnabled(true);
+        btnDesc = (Button) findViewById(R.id.description);
+
+
+
+        btnBeginTest.setEnabled(false);
         matricNo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                matricNum = matricNo.getText().toString();
                 processButtonByTextLength();
             }
         });
@@ -48,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, Phase1Test.class);
-                intent.putExtra("key" , matricNo.getText().toString());
+                intent.putExtra("key" , matricNum);
+                startActivity(intent);
+                matricNo.setText(null);
+            }
+        });
+
+        btnDesc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,DescriptionActivity.class);
                 startActivity(intent);
             }
         });
@@ -61,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             btnBeginTest.setEnabled(true);
         }else
         {
-            btnBeginTest.setEnabled(true);
+            btnBeginTest.setEnabled(false);
         }
     }
 

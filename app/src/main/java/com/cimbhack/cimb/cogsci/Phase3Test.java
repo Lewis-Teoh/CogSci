@@ -13,8 +13,18 @@ import java.util.ArrayList;
 
 public class Phase3Test extends AppCompatActivity {
 
-    String[] answer = {"cup-DESK", "car-PORT", "apple-PEN", "table-CHAIR",
-            "ship-MOTOR", "down-OUT" , "rice-NOODLES"};
+    String[] answer = {"cup-DESK", "car-PORT", "apple-PEN", "cloak-DANGER",
+            "pots-PANS", "cream-SUGAR", "salt-PEPPER" , "shoes-SOCKS",
+            "knife-FORK","law-ORDER","kerb-CRAB","cash-CACHE",
+            "down-OUT" , "last-SECOND" , "cheap-CHIP" ,"birds-BUTTERFLY",
+            "bacon-EGGS" , "water-SOAP" , "wine-CHEESE" , "rhyme-REASON",
+            "thin-THICK", "roll-WRAP" , "profit-LOSS" , "cup-SAUCER",
+            "bread-BUTTER" ,"rock-LOCK" , "cloth-SHIRT", "chocolate-COINS",
+            "tower-MIRROR" , "wire-STRING", "toilet-BED" , "switch-BUTTON",
+            "book-PAPER" , "mouse-CUTE" , "broom-MAP" , "fan-BEG",
+            "cold-NIGHT", "plug-CABLE" , "pencil-CLOCK" , "bean-BIN",
+            "hills-ROAD" , "chain-KEY" , "buns-CARROT" , "sweet-CANS"
+    };
     TextView textView ;
     Button btnYes , btnNo , finishAttempt;
     int i = 0;
