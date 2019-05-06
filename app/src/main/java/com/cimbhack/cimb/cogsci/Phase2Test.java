@@ -22,24 +22,14 @@ public class Phase2Test extends AppCompatActivity {
             "knife-F__K","law-O_D_R","kerb-C__B","cash-CAC__",
             "down-O_T" , "last-S__O_D" , "cheap-C__P" ,"birds-BUTTE__LY",
             "bacon-E__S" , "water-S__P" , "wine-C__E_E" , "rhyme-RE_S_N",
-            "thin-T___K", "roll-W__P" , "profit-L__S" , "cup-S__CER",
-            "bread-BU__ER" ,"rock-L__K" , "cloth-__IRT", "chocolate-C__NS",
-            "tower-M__ROR" , "wire-ST__NG", "toilet-B_D" , "switch-_UT__N",
-            "book-PA__R" , "mouse-C__E" , "broom-M_P" , "fan-B_G",
-            "cold-N___T", "plug-C__LE" , "pencil-CL__K" , "bean-B_N",
-            "hills-R__D" , "chain-K_Y" , "buns-CAR__T" , "sweet-C__S"
+
     };
     String[] answer = {"cup-DESK", "car-PORT", "apple-PEN", "cloak-DANGER",
             "pots-PANS", "cream-SUGAR", "salt-PEPPER" , "shoes-SOCKS",
             "knife-FORK","law-ORDER","kerb-CRAB","cash-CACHE",
             "down-OUT" , "last-SECOND" , "cheap-CHIP" ,"birds-BUTTERFLY",
             "bacon-EGGS" , "water-SOAP" , "wine-CHEESE" , "rhyme-REASON",
-            "thin-THICK", "roll-WRAP" , "profit-LOSS" , "cup-SAUCER",
-            "bread-BUTTER" ,"rock-LOCK" , "cloth-SHIRT", "chocolate-COINS",
-            "tower-MIRROR" , "wire-STRING", "toilet-BED" , "switch-BUTTON",
-            "book-PAPER" , "mouse-CUTE" , "broom-MAP" , "fan-BEG",
-            "cold-NIGHT", "plug-CABLE" , "pencil-CLOCK" , "bean-BIN",
-            "hills-ROAD" , "chain-KEY" , "buns-CARROT" , "sweet-CANS"
+
     };
     ArrayList<String> arrayList = new ArrayList<String>();
     int arraylength = questions.length;
@@ -47,8 +37,8 @@ public class Phase2Test extends AppCompatActivity {
     TextView display;
     EditText input;
     Button submit , finish;
-    String keys;
-    Boolean validation;
+    String keys , sex;
+
     int i = 0;
     int correct = 0;
 
@@ -68,6 +58,7 @@ public class Phase2Test extends AppCompatActivity {
         Bundle bundle=getIntent().getExtras();
         if(null!=bundle){
             keys = bundle.getString("key");
+            sex = bundle.getString("sex");
             Log.i("Keys" , "Matric No ::"+keys);
         }
 
@@ -180,6 +171,7 @@ public class Phase2Test extends AppCompatActivity {
                     Intent intent = new Intent(Phase2Test.this, Phase3Test.class);
                     intent.putExtra("array_list", arrayList);
                     intent.putExtra("key",keys);
+                    intent.putExtra("sex",sex);
                     startActivity(intent);
                 }
             });

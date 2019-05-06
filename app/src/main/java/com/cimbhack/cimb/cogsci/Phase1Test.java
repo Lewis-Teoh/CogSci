@@ -14,18 +14,14 @@ public class Phase1Test extends AppCompatActivity {
             "knife-FORK","law-ORDER","kerb-CRAB","cash-CACHE",
             "down-OUT" , "last-SECOND" , "cheap-CHIP" ,"birds-BUTTERFLY",
             "bacon-EGGS" , "water-SOAP" , "wine-CHEESE" , "rhyme-REASON",
-            "thin-THICK", "roll-WRAP" , "profit-LOSS" , "cup-SAUCER",
-            "bread-BUTTER" ,"rock-LOCK" , "cloth-SHIRT", "chocolate-COINS",
-            "tower-MIRROR" , "wire-STRING", "toilet-BED" , "switch-BUTTON",
-            "book-PAPER" , "mouse-CUTE" , "broom-MAP" , "fan-BEG",
-            "cold-NIGHT", "plug-CABLE" , "pencil-CLOCK" , "bean-BIN",
-            "hills-ROAD" , "chain-KEY" , "buns-CARROT" , "sweet-CANS"
+
     };
 
     final android.os.Handler handler = new android.os.Handler();
     TextView display;
     Button ready;
     String keys;
+    String sex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +32,7 @@ public class Phase1Test extends AppCompatActivity {
         Bundle bundle= getIntent().getExtras();
         if(bundle!=null){
             keys = bundle.getString("key");
+            sex = bundle.getString("sex");
             Log.i("Keys" , "Matric No ::"+keys);
         }
         handler.post(new Runnable() {
@@ -56,6 +53,7 @@ public class Phase1Test extends AppCompatActivity {
                                 public void onClick(View v) {
                                     Intent intent = new Intent(Phase1Test.this,Phase2Test.class);
                                     intent.putExtra("key",keys);
+                                    intent.putExtra("sex",sex);
                                     startActivity(intent);
                                 }
                             });

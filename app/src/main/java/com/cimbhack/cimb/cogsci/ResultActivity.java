@@ -16,7 +16,7 @@ public class ResultActivity extends AppCompatActivity {
     DatabaseReference myRef;
     double result =0;
     String s="";
-    String keys;
+    String keys, sex;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -37,11 +37,12 @@ public class ResultActivity extends AppCompatActivity {
             result = bundle.getDouble("Score");
             result = (double) Math.round(result*100d)/100d;
             s = String.valueOf(result);
+            sex = bundle.getString("sex");
             keys = bundle.getString("key");
             Log.i("Keys" , "Matric No ::"+keys);
 
             myRef= database.getReference(keys);
-            myRef.setValue(keys+"                                 "+s+"%");
+            myRef.setValue(keys+"                 "+sex+"             "+s+"%");
         }
         btnResult.setOnClickListener(new View.OnClickListener() {
             @Override

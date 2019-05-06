@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Forget It All Along Test</string>
-    <string name="background">Background\n
-There has been much controversy over the issue of recovered memories. (For an excellent overview, see the book edited by Conway, 1997.) This is the apparent finding that people who enter psychotherapy suddenly recover memories of events that happened to them years ago, usually memories of sexual abuse. Schooler, Bendiksen, and Ambadar (1997) use the term discovered memories rather than recovered memories because the latter implies that the memories are of real events whereas the former is neutral on whether the memory is of a real event or not.</string>
+    <string-array name="sex_arrays">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
 
 </resources>

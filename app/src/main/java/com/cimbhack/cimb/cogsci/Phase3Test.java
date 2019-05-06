@@ -18,13 +18,9 @@ public class Phase3Test extends AppCompatActivity {
             "knife-FORK","law-ORDER","kerb-CRAB","cash-CACHE",
             "down-OUT" , "last-SECOND" , "cheap-CHIP" ,"birds-BUTTERFLY",
             "bacon-EGGS" , "water-SOAP" , "wine-CHEESE" , "rhyme-REASON",
-            "thin-THICK", "roll-WRAP" , "profit-LOSS" , "cup-SAUCER",
-            "bread-BUTTER" ,"rock-LOCK" , "cloth-SHIRT", "chocolate-COINS",
-            "tower-MIRROR" , "wire-STRING", "toilet-BED" , "switch-BUTTON",
-            "book-PAPER" , "mouse-CUTE" , "broom-MAP" , "fan-BEG",
-            "cold-NIGHT", "plug-CABLE" , "pencil-CLOCK" , "bean-BIN",
-            "hills-ROAD" , "chain-KEY" , "buns-CARROT" , "sweet-CANS"
+
     };
+    String sex;
     TextView textView ;
     Button btnYes , btnNo , finishAttempt;
     int i = 0;
@@ -51,6 +47,7 @@ public class Phase3Test extends AppCompatActivity {
             ArrayList<String> arrayList = bundle.getStringArrayList("array_list");
             check = (ArrayList<String>) arrayList.clone();
             keys = bundle.getString("key");
+            sex = bundle.getString("sex");
             Log.i("List" , "Passed Array List ::"+check);
             Log.i("Keys" , "Matric No ::"+keys);
         }
@@ -77,6 +74,7 @@ public class Phase3Test extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(Phase3Test.this,ResultActivity.class);
                             intent.putExtra("Score",evaluateScore(correct));
+                            intent.putExtra("sex",sex);
                             intent.putExtra("key",keys);
                             startActivity(intent);
                         }
@@ -110,6 +108,7 @@ public class Phase3Test extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(Phase3Test.this,ResultActivity.class);
                             intent.putExtra("Score",evaluateScore(correct));
+                            intent.putExtra("sex",sex);
                             intent.putExtra("key",keys);
                             startActivity(intent);
                         }

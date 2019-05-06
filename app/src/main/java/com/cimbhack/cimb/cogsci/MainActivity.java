@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnBeginTest , btnDesc;
     EditText matricNo;
     TabItem tab;
-    String matricNum;
-
+    String matricNum, sex;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnBeginTest = (Button) findViewById(R.id.beginTest);
         matricNo = (EditText) findViewById(R.id.matricNo);
         btnDesc = (Button) findViewById(R.id.description);
-
+        spinner = (Spinner) findViewById(R.id.spinner1);
 
 
         btnBeginTest.setEnabled(false);
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 processButtonByTextLength();
             }
         });
+        addListenerOnButton();
 
         btnBeginTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, Phase1Test.class);
                 intent.putExtra("key" , matricNum);
+                intent.putExtra("sex",sex);
                 startActivity(intent);
                 matricNo.setText(null);
+                spinner.setSelection(0);
             }
         });
 
@@ -79,6 +83,20 @@ public class MainActivity extends AppCompatActivity {
         {
             btnBeginTest.setEnabled(false);
         }
+    }
+    public void addListenerOnButton() {
+
+        spinner = (Spinner) findViewById(R.id.spinner1);
+
+
+        btnBeginTest.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                       sex = String.valueOf(spinner.getSelectedItem());
+            }
+
+        });
     }
 
 
